@@ -1,7 +1,7 @@
-# breweries
+# foxes
 auther: Michael Jaime
 
-project: Breweries
+project: foxes
 
 email: michaelajaime@lewisu.edu
 

@@ -5,22 +5,21 @@ let deleteFirstPhotoDelay
 
 async function start () {
 try {
-    const response = await fetch("https://api.openbrewerydb.org/v1/breweries")
-const data = await response.json()
-createBreweryList(data.message)
+    const response = await fetch("https://randomfox.ca/images/59.jpg")
+createFoxList(data.message)
 } catch(e) {
-console.log("There was a problem fetching the brewery list.")
+console.log("There was a problem fetching the fox list.")
     }
 }
 
 start()
 
-function createBreweryList(breweryList) {
-    document.getElementById("breweries").innerHTML = `
-    <select onchange="loadByBrewery(this.value)">
-            <option>Choose a brewery</option>
-             ${Object.keys(breweryList).map(function (breweries) {
-                    return `<option>${breweries}</option>`
+function createFoxList(foxList) {
+    document.getElementById("foxes").innerHTML = `
+    <select onchange="loadByFox(this.value)">
+            <option>Choose a fox</option>
+             ${Object.keys(foxList).map(function (foxes) {
+                    return `<option>${foxes}</option>`
              }).join('')}
 
     </select>
@@ -28,9 +27,9 @@ function createBreweryList(breweryList) {
 
 }
 
-async function loadByBrewery(breed) {
-    if (breed !="Choose a brewery") {
-       const response = await fetch(`https://api.openbrewerydb.org/${breweries}/breweries`)
+async function loadByFox(foxes) {
+    if (foxes!="Choose a fox") {
+       const response = await fetch(`https://randomfox.ca/${foxes}/images/59.jpg`)
         const data = await response.json()
         createSlideShow(data.message)
     }
